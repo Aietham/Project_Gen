@@ -5,14 +5,13 @@ import java.util.Scanner;
 public class User {
     private String name;
     private String Username;
-    private Long PhoneNumber;
+    private long PhoneNumber;
     private String password;
 
-    public static boolean comparePhoneNumber(User a, User b) {
+    public static boolean comparePhoneNumber(User a, User b) {         //passing object as an argument?
         System.out.println(a.getPhoneNumber());
         System.out.println(b.getPhoneNumber());
-        return(a.getPhoneNumber() == b.getPhoneNumber());
-
+        return(a.getPhoneNumber() == b.getPhoneNumber() );            //does not return true?
 
     }
 
@@ -32,11 +31,11 @@ public class User {
         Username = username;
     }
 
-    public Long getPhoneNumber() {
+    public long getPhoneNumber() {
         return PhoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         PhoneNumber = phoneNumber;
     }
 
@@ -62,18 +61,19 @@ public class User {
         System.out.println("enter trhe phone no.");
         a.setPhoneNumber(s.nextLong());
 
-        Scanner v = new Scanner(System.in);
 
         User b = new User();
         System.out.println("Enter the name: ");
-        b.setName(v.nextLine());
+        s.nextLine();
+        b.setName(s.nextLine());
         System.out.println("enter the username");
-        b.setUsername(v.nextLine());
+        b.setUsername(s.nextLine());
         System.out.println("enter the password");
-        b.setPassword(v.nextLine());
+        b.setPassword(s.nextLine());
         System.out.println("enter trhe phone no.");
-        b.setPhoneNumber(v.nextLong());
+        b.setPhoneNumber(s.nextLong());
 
+        
 
         System.out.println(comparePhoneNumber(a,b));
     }

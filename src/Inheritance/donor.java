@@ -2,7 +2,8 @@ package Inheritance;
 
 import java.util.Scanner;
 
-class Person {                              //cant accept public
+
+class Person {                              //cant accept public in parent class?
     private String name;
     private String dateofbirth;
     private String gender;
@@ -52,7 +53,7 @@ class Person {                              //cant accept public
 
 public class donor extends Person{
     private String bloodbankname;
-    private String boodtype;
+    private String bloodtype;
     private String donationdate;
 
     public String getBloodbankname() {
@@ -63,12 +64,12 @@ public class donor extends Person{
         this.bloodbankname = bloodbankname;
     }
 
-    public String getBoodtype() {
-        return boodtype;
+    public String getDonarType() {
+        return bloodtype;
     }
 
-    public void setBoodtype(String boodtype) {
-        this.boodtype = boodtype;
+    public void setDonarType(String DonarType) {
+        this.bloodtype = DonarType;
     }
 
     public String getDonationdate() {
@@ -79,12 +80,20 @@ public class donor extends Person{
         this.donationdate = donationdate;
     }
 
-    public void DisplayDonantionDetails(){
+    public void DisplayDonantionDetails(donor a){
+        System.out.println("Donation Details");
+        System.out.println("name"+ a.getName() );
+        System.out.println("Date of birth"+ a.getDateofbirth());
+        System.out.println("mobile no"+a.getMobilenumber());
+        System.out.println("blood group"+getBloodgroup());
+        System.out.println("blood bank name"+getBloodbankname());
+        System.out.println("donor type"+ getDonarType());
+        System.out.println("donation date"+getDonationdate());
 
     }
 
     public static void main(String[] strgs){
-        Person a = new donor();
+        donor a = new donor();                      //sub-class object?
         Scanner s= new Scanner(System.in);
 
         System.out.println("enter the name: ");
@@ -98,6 +107,12 @@ public class donor extends Person{
         System.out.println("enter the blood group");
         a.setBloodgroup(s.nextLine());
         System.out.println("nter the blood bank name");
-        a.set
+        a.setBloodbankname(s.nextLine());
+        System.out.println("Enter donor type");
+        a.setDonarType(s.nextLine());
+        System.out.println("enter donation date");
+        a.setDonationdate(s.nextLine());
+        s.close();
+        a.DisplayDonantionDetails(a);        //all the methods stored in the obj?
     }
 }
